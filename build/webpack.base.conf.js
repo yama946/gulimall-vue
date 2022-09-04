@@ -7,16 +7,16 @@ const vueLoaderConfig = require('./vue-loader.conf')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
+//注释后eslint语法检查关闭，重启应用
 const createLintingRule = () => ({
-  test: /\.(js|vue)$/,
-  loader: 'eslint-loader',
-  enforce: 'pre',
-  include: [resolve('src'), resolve('test')],
-  options: {
-    formatter: require('eslint-friendly-formatter'),
-    emitWarning: !config.dev.showEslintErrorsInOverlay
-  }
+  // test: /\.(js|vue)$/,
+  // loader: 'eslint-loader',
+  // enforce: 'pre',
+  // include: [resolve('src'), resolve('test')],
+  // options: {
+  //   formatter: require('eslint-friendly-formatter'),
+  //   emitWarning: !config.dev.showEslintErrorsInOverlay
+  // }
 })
 
 module.exports = {
