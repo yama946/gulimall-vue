@@ -63,6 +63,10 @@
         align="center"
         label="品牌logo地址"
       >
+      <template slot-scope="scope">
+          <img style="width: 90px; height: 60px" :src="scope.row.logo" />
+      </template>
+
       </el-table-column>
       <el-table-column
         prop="descript"
