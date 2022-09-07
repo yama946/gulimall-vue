@@ -29,7 +29,7 @@
         <span>{{ node.label }}</span>
         <span>
           <el-button
-            v-if="data.catLevel <= 2"
+            v-if="node.level <= 2"
             type="text"
             size="mini"
             @click="() => append(data)"
@@ -40,7 +40,7 @@
             修改
           </el-button>
           <el-button
-            v-if="data.children.length == 0"
+            v-if="node.childNodes.length == 0"
             type="text"
             size="mini"
             @click="() => remove(node, data)"
@@ -120,7 +120,7 @@ export default {
     //获取菜单内容
     getMenu() {
       this.$http({
-        url: this.$http.adornUrl("/product/category/list/menu"),
+        url: this.$http.adornUrl("/product/category/list/tree"),
         method: "get",
       }).then(({ data }) => {
         console.log("获取到菜单数据:", data.data);
