@@ -62,11 +62,11 @@ export default {
       }
     };
   },
-  created(){
-    this.getWares();
+  created () {
+    this.getWareInfo();
   },
   methods: {
-    getWares() {
+    getWareInfo() {
       this.$http({
         url: this.$http.adornUrl("/ware/wareinfo/list"),
         method: "get",
@@ -76,6 +76,7 @@ export default {
         })
       }).then(({ data }) => {
         this.wareList = data.page.list;
+        console.log("仓库数据"+this.wareList);
       });
     },
     init(id) {

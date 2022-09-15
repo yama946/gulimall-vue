@@ -136,6 +136,7 @@ export default {
       let items = this.dataListSelections.map(item => {
         return item.id;
       });
+      console.log("合并的id值"+items);
       if (!this.purchaseId) {
         this.$confirm(
           "没有选择任何【采购单】，将自动创建新单进行合并。确认吗？",
@@ -150,7 +151,7 @@ export default {
             this.$http({
               url: this.$http.adornUrl("/ware/purchase/merge"),
               method: "post",
-              data: this.$http.adornData({ items: items }, false)
+              data: this.$http.adornData({ item:items }, false)
             }).then(({ data }) => {
               this.getDataList();
             });
